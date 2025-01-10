@@ -50,7 +50,8 @@ public class Tallyer {
      * @param topics a list of strings representing the topics to be tallied
      * @return a map containing topics as keys and their occurrence counts as values
      */
-    public static Map<String, Integer> tallyTopics(List<String> topics) {
+    public static Map<String, Integer> tallyTopics(List<String> topics)
+     {
         // WAVE 1
         // TODO: Implement this method
         Map<String, Integer> count = new HashMap<>();
@@ -83,10 +84,26 @@ public class Tallyer {
      * @param topics a list of strings representing the topics to be tallied
      * @return a map containing topics as keys and their occurrence counts as values
      */
-    public static Map<String, Integer> tallyTopicsFiltered(List<String> ids, List<String> topics) {
+    public static Map<String, Integer> tallyTopicsFiltered(List<String> ids, List<String> topics)
+    {
       // WAVE 2
       // TODO: Implement this method
+      Map<String, Integer> count = new HashMap<>();
+      for(String item: topics)
+      {
+          if(!count.containsKey(item))
+          {
+              count.put(item, 1);
+          }
+          else
+          {
+              int currentCount = count.remove(item);
+              count.put(item, currentCount);
+          }
+      }
 
-      return null;
-  }
+
+
+      return count;
+    }
 }
